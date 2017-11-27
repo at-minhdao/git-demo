@@ -15,3 +15,11 @@
 - Thông qua commit chúng ta có thể revert hay rollback lại lịch sử dữ liệu.
 ## Repository
 - Tập hợp file và lịch sử của file đó.
+- Một repository có thể sống được cả trên local và trên server
+## Work flow
+- 3 trạng thái của file
+<ul>
+<li>commited: dữ liệu được lưu giữ an toàn trong cơ sở dữ liệu local</li>
+<li>modified: file bị sửa đổi nhưng chưa có commited nào ở dữ liệu local</li>
+<li>staged: đánh dấu một file bị sửa đổi trong phiên hiện tại sẽ vào snapshot trong commited tiếp theo</li>
+</ul>
