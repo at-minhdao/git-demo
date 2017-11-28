@@ -49,12 +49,12 @@ Tương ứng với 3 vị trí này ta có các hành động:
 
 ## Work flow
 - Kiểm tra sự thay đổi của file
-    git diff README.md
+    - *git diff README.md*
 
 ## Git Ignore
 - Khai báo các file hoặc thư mục trong file .gitignore để loại bỏ chúng ra khỏi tracking của git
 
-##Branch
+## Branch
 - Các branch được dùng để phát triển những tính năng tách riêng ra từ những branch khác.
 - Branch master là branch mặc định khi ta tạo một repository.
 - Sử dụng các branch khác trong giai đoạn phát triển và merge lại nhánh master khi một công việc hoàn tất.
