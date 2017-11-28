@@ -14,20 +14,19 @@
 - Khi chúng ta hoàn thành xong một công việc thì nên tạo ra một commit mới để bảo toàn dữ liệu.
 - Thông qua commit chúng ta có thể revert hay rollback lại lịch sử dữ liệu.
 ##### Các thao tác add và commit
-- Thêm file được thay đổi
-    *git add <ten-tap-tin>*
+- Thêm file được thay đổi vào index
+    - *git add <ten-tap-tin>*
     *git add **
 - Tạo commit cho những thay đổi
-    *git commit -m "Ghi chú cho commit"*
+    - *git commit -m "Ghi chú cho commit"*
 - Đẩy code lên repository remote
-    *git push origin master* (có thể thay đổi branch master thành những branch khác)
+    - *git push origin master* (có thể thay đổi branch master thành những branch khác)
 ## Repository
 - Tập hợp file và lịch sử của file đó.
 - Một repository có thể sống được cả trên local và trên server
 - Clone một repository về máy
-    *git clone git@github.com:at-minhdao/git-demo.git*
-### Ba trạng thái của một repo:
-
+    - *git clone git@github.com:at-minhdao/git-demo.git*
+### Ba trạng thái của một repository:
 <img src=http://i.imgur.com/qkmdJSR.png>
 
 Như hình trên ta có thể thấy có 3 điểm cần lưu ý:
@@ -61,10 +60,10 @@ Tương ứng với 3 vị trí này ta có các hành động:
 - Sử dụng các branch khác trong giai đoạn phát triển và merge lại nhánh master khi một công việc hoàn tất.
 ##### Các thao tác trên branch
 - Tạo một branch mới và chuyển qua branch mới đó
-	*git checkout -b new_branch*
+	- *git checkout -b new_branch*
 - Trở lại nhánh master
-	*git checkout master*
+	- *git checkout master*
 - Xóa một branch 
-	*git branch -d new_branch*
+	- *git branch -d new_branch*
 - Đẩy nhánh lên repository
-	*git push origin new_branch* 
+	- *git push origin new_branch* 
