@@ -1,6 +1,6 @@
 <?php
 function dbconn() {
-	$servername = "localhost";
+	$servername = "192.168.33.11";
 	$username = "dtminh188";
 	$password = "123";
 
@@ -160,10 +160,37 @@ function editUser($arUser) {
 
 function listUser() {
 	$conn = dbconn();
-	$sql  = "SELECT * FROM users";
+	//total record
+	$sql  = "SELECT count(id) as total from users";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();	
+	$row  = $stmt->fetch(PDO::FETCH_ASSOC);
+	$total_records = $row['total'];
+	//current page & limit
+	$current_page  = isset($_GET['page']) ? $_GET['page'] : 1;
+	$limit         = 1;
+	$total_page    = ceil($total_records / $limit);
+	
+	if ($current_page > $total_page){
+		$current_page = $total_page;
+	}
+	else if ($current_page < 1){
+		$current_page = 1;
+	}
+	//start
+	$start = ($current_page - 1) * $limit;
+
+	//get list user
+	$sql  = "SELECT * FROM users LIMIT $start, $limit";
 	$stmt = $conn->prepare($sql);
 	$stmt->setFetchMode(PDO::FETCH_ASSOC);
 	$stmt->execute();
-	$resultSet = $stmt->fetchAll();
-	return $resultSet;
+	$listUser = $stmt->fetchAll();
+
+	$data = array (
+		'current_page' => $current_page,
+		'total_page'   => $total_page,
+		'listUser'     => $listUser,
+	);	
+	return $data;
 }

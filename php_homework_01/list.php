@@ -17,8 +17,10 @@ require_once 'inc/checkUser.php';
 				<th>Full name</th>
 			</tr>
 			<?php 
-			$listUser = listUser();
-			foreach ($listUser as $row) {
+			$data = listUser();
+			$current_page = $data['current_page'];
+			$total_page   = $data['total_page'];			
+			foreach ($data['listUser'] as $row) {
 				?>
 				<tr>
 					<td><?php echo $row['id'] ?></td>
@@ -31,6 +33,28 @@ require_once 'inc/checkUser.php';
 			} ?>
 		</table>
 	</form>
+	<div class="pagination">
+		<?php 
+		// if current_page > 1 and total_page > 1 show button prev
+		if ($current_page > 1 && $total_page > 1){
+			echo '<a href="list.php?page='.($current_page-1).'">Prev</a> | ';
+		}
+		// pagination
+		    for ($i = 1; $i <= $total_page; $i++){
+			if ($i == $current_page){
+				echo '<span>'.$i.'</span> | ';
+			}
+			else{
+				echo '<a href="list.php?page='.$i.'">'.$i.'</a> | ';
+			}
+		}
+
+		// if current_page < $total_page and total_page > 1 show button prev
+		if ($current_page < $total_page && $total_page > 1){
+			echo '<a href="list.php?page='.($current_page+1).'">Next</a> | ';
+		}
+		?>
+	</div>
 </div>
 <?php 
 require_once 'inc/header.php';
